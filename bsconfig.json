@@ -1,0 +1,9 @@
+{
+  "name": "react-native-transparent-status-and-navigation-bar",
+  "reason": {"react-jsx": 3},
+  "package-specs": {"module": "es6", "in-source": true},
+  "suffix": ".bs.js",
+  "sources": [{"dir": "src"}],
+  "bs-dependencies": ["@rescript/react", "rescript-react-native"]
+}
+  

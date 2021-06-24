@@ -1,0 +1,42 @@
+{
+  "name": "react-native-transparent-status-and-navigation-bar",
+  "version": "1.0.0",
+  "description": "Easily handle transparent status and navigation bar for React Native apps",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "https://github.com/MoOx/rescript-next",
+  "funding": "https://github.com/MoOx/rescript-next?sponsor=1",
+  "license": "MIT",
+  "keywords": [
+    "react-native",
+    "android",
+    "transparent",
+    "navigation",
+    "status-bar"
+  ],
+  "files": [
+    "src",
+    "bsconfig.json",
+    "android/src",
+    "android/build.gradle"
+  ],
+  "main": "src/TransparentStatusAndNavigationBar.bs.js",
+  "scripts": {
+    "prepare": "rescript",
+    "test:lib": "cd android && ./gradlew assembleRelease",
+    "test:example": "cd example && npm ci && cd android && ./gradlew bundleRelease",
+    "test": "npm run test:lib && npm run test:example"
+  },
+  "peerDependencies": {
+    "react": "17.0.1",
+    "react-native": "^0.64.2"
+  },
+  "devDependencies": {
+    "@rescript/react": "^0.10.3",
+    "react": "17.0.1",
+    "react-native": "^0.64.2",
+    "rescript": "^9.1.3",
+    "rescript-react-native": "^0.64.3"
+  }
+}
