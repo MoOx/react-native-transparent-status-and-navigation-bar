@@ -26,7 +26,8 @@
     "prepare": "rescript",
     "test:lib": "cd android && ./gradlew assembleRelease",
     "test:example": "cd example && npm ci && cd android && ./gradlew bundleRelease",
-    "test": "npm run test:lib && npm run test:example"
+    "test": "npm run test:lib && npm run test:example",
+    "release": "npmpub"
   },
   "peerDependencies": {
     "react": "17.0.1",
@@ -34,6 +35,7 @@
   },
   "devDependencies": {
     "@rescript/react": "^0.10.3",
+    "npmpub": "^5.0.0",
     "react": "17.0.1",
     "react-native": "^0.64.2",
     "rescript": "^9.1.3",
