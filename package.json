@@ -5,8 +5,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/MoOx/rescript-next",
-  "funding": "https://github.com/MoOx/rescript-next?sponsor=1",
+  "repository": "https://github.com/MoOx/react-native-transparent-status-and-navigation-bar",
+  "funding": "https://github.com/MoOx/react-native-transparent-status-and-navigation-bar?sponsor=1",
   "license": "MIT",
   "keywords": [
     "react-native",
