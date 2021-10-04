@@ -30,8 +30,8 @@
     "release": "npmpub"
   },
   "peerDependencies": {
-    "react": "^17.0.1",
-    "react-native": "^0.64.2"
+    "react": "^16.0.0 || ^17.0.0 || ^18.0.0 ",
+    "react-native": "^0.64.0 || ^0.65.0 || ^0.66.0"
   },
   "devDependencies": {
     "@rescript/react": "^0.10.3",
