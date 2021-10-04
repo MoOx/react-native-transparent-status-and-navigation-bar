@@ -1,5 +1,9 @@
 # Changelog of `react-native-transparent-status-and-navigation-bar`
 
+## 1.0.3 - 2021-10-04
+
+- Improved react(-native) peer dependencies versions
+
 ## 1.0.2 - 2021-10-04
 
 - Fixed react peer dependency version

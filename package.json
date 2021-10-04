@@ -1,6 +1,6 @@
 {
   "name": "react-native-transparent-status-and-navigation-bar",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Easily handle transparent status and navigation bar for React Native apps",
   "publishConfig": {
     "access": "public"
