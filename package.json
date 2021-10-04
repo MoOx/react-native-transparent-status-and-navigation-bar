@@ -30,7 +30,7 @@
     "release": "npmpub"
   },
   "peerDependencies": {
-    "react": "17.0.1",
+    "react": "^17.0.1",
     "react-native": "^0.64.2"
   },
   "devDependencies": {
