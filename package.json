@@ -1,6 +1,6 @@
 {
   "name": "react-native-transparent-status-and-navigation-bar",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "Easily handle transparent status and navigation bar for React Native apps",
   "publishConfig": {
     "access": "public"
@@ -15,30 +15,47 @@
     "navigation",
     "status-bar"
   ],
+  "types": "dist/typescript/index.d.ts",
+  "main": "dist/commonjs/index.js",
+  "module": "dist/module/index.js",
   "files": [
-    "src",
-    "bsconfig.json",
-    "android/src",
-    "android/build.gradle"
+    "/android",
+    "/dist",
+    "/src",
+    "package.json"
   ],
-  "main": "src/TransparentStatusAndNavigationBar.bs.js",
   "scripts": {
-    "prepare": "rescript",
-    "test:lib": "cd android && ./gradlew assembleRelease",
-    "test:example": "cd example && npm ci && cd android && ./gradlew bundleRelease",
+    "format": "prettier '**/*.{js,json,md,ts,tsx}' --write",
+    "release": "npmpub",
+    "prepare": "bob build",
     "test": "npm run test:lib && npm run test:example",
-    "release": "npmpub"
+    "test:example": "cd example && npm ci && cd android && ./gradlew bundleRelease",
+    "test:lib": "cd android && ./gradlew assembleRelease"
+  },
+  "prettier": {
+    "trailingComma": "all"
+  },
+  "@react-native-community/bob": {
+    "source": "src",
+    "output": "dist",
+    "targets": [
+      "commonjs",
+      "module",
+      "typescript"
+    ]
   },
   "peerDependencies": {
-    "react": "^16.0.0 || ^17.0.0 || ^18.0.0 ",
-    "react-native": "^0.64.0 || ^0.65.0 || ^0.66.0"
+    "react": ">=17.0.1",
+    "react-native": ">=0.64.0"
   },
   "devDependencies": {
-    "@rescript/react": "^0.10.3",
+    "@babel/core": "^7.16.0",
+    "@react-native-community/bob": "^0.17.1",
+    "@types/react-native": "^0.66.4",
     "npmpub": "^5.0.0",
-    "react": "17.0.1",
-    "react-native": "^0.64.2",
-    "rescript": "^9.1.3",
-    "rescript-react-native": "^0.64.3"
+    "prettier": "^2.4.1",
+    "react": "^17.0.2",
+    "react-native": "^0.66.3",
+    "typescript": "^4.4.4"
   }
 }

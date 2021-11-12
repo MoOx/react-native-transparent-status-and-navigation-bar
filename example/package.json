@@ -5,26 +5,18 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "react-native start",
-    "test": "jest",
-    "lint": "eslint ."
+    "start": "react-native start"
   },
   "dependencies": {
-    "react": "17.0.1",
-    "react-native": "0.64.2",
+    "react": "17.0.2",
+    "react-native": "0.66.3",
     "react-native-transparent-status-and-navigation-bar": "file:../"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9",
-    "@babel/runtime": "^7.12.5",
-    "@react-native-community/eslint-config": "^2.0.0",
-    "babel-jest": "^26.6.3",
-    "eslint": "7.14.0",
-    "jest": "^26.6.3",
-    "metro-react-native-babel-preset": "^0.64.0",
-    "react-test-renderer": "17.0.1"
-  },
-  "jest": {
-    "preset": "react-native"
+    "@babel/core": "^7.16.0",
+    "@babel/runtime": "^7.16.3",
+    "@types/react-native": "^0.66.4",
+    "metro-react-native-babel-preset": "^0.66.2",
+    "typescript": "^4.4.4"
   }
 }
