@@ -2,13 +2,6 @@
 #
 .DS_Store
 
-# XDE
-.expo/
-
-# VSCode
-.vscode/
-jsconfig.json
-
 # Xcode
 #
 build/
@@ -27,31 +20,40 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
-project.xcworkspace
 
-# Android/IJ
+# Android/IntelliJ
 #
+build/
 .idea
 .gradle
 local.properties
-android.iml
+*.iml
+*.hprof
 
-# Cocoapods
+# Visual Studio Code
 #
-example/ios/Pods
+.vscode/
 
 # node.js
 #
 node_modules/
 npm-debug.log
-yarn-debug.log
 yarn-error.log
 
 # BUCK
 buck-out/
 \.buckd/
-android/app/libs
-android/keystores/debug.keystore
+*.keystore
+!debug.keystore
+
+# Bundle artifact
+*.jsbundle
+
+# CocoaPods
+Pods/
+
+# Bob
+dist/
 
 # ReScript
 *.bs.js

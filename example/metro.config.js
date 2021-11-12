@@ -1,13 +1,10 @@
-const path = require('path');
-const exclusionList = require('metro-config/src/defaults/exclusionList');
-const escape = require('escape-string-regexp');
-const pak = require('../package.json');
+const path = require("path");
+const exclusionList = require("metro-config/src/defaults/exclusionList");
+const escape = require("escape-string-regexp");
+const { peerDependencies } = require("../package.json");
 
-const root = path.resolve(__dirname, '..');
-
-const modules = Object.keys({
-  ...pak.peerDependencies,
-});
+const root = path.resolve(__dirname, "..");
+const modules = Object.keys(peerDependencies);
 
 module.exports = {
   projectRoot: __dirname,
@@ -18,12 +15,13 @@ module.exports = {
   resolver: {
     exclusionListRE: exclusionList(
       modules.map(
-        m => new RegExp(`^${escape(path.join(root, 'node_modules', m))}\\/.*$`),
+        (m) =>
+          new RegExp(`^${escape(path.join(root, "node_modules", m))}\\/.*$`),
       ),
     ),
 
     extraNodeModules: modules.reduce((acc, name) => {
-      acc[name] = path.join(__dirname, 'node_modules', name);
+      acc[name] = path.join(__dirname, "node_modules", name);
       return acc;
     }, {}),
   },
