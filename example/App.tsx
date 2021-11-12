@@ -48,7 +48,7 @@ export const App = () => {
         { backgroundColor: isDarkMode ? "darkblue" : "pink" },
       ]}
     >
-      <StatusBar barStyle={statusBarStyle} />
+      <StatusBar barStyle={statusBarStyle} animated={true} />
       <NavigationBar barStyle={navigationBarStyle} />
 
       <Text>StatusBar barStyle: {statusBarStyle ?? "default"}</Text>
