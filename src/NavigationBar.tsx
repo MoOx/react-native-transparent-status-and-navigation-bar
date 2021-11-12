@@ -20,7 +20,7 @@ export class NavigationBar extends React.Component<NavigationBarProps> {
     return { barStyle };
   }
 
-  static currentHeight = NativeModule.navigationBarHeight ?? undefined;
+  static currentHeight = NativeModule?.navigationBarHeight;
 
   static pushStackEntry(props: NavigationBarProps): NavigationBarStackEntry {
     const entry = NavigationBar.createStackEntry(props);
@@ -78,7 +78,7 @@ export class NavigationBar extends React.Component<NavigationBarProps> {
         barStyle != null &&
         (!oldProps || oldProps.barStyle !== barStyle)
       ) {
-        NativeModule.setNavigationBarStyle?.(barStyle);
+        NativeModule?.setNavigationBarStyle(barStyle);
       }
 
       // Update the current prop values.

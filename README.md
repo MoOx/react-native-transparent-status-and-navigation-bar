@@ -11,18 +11,17 @@
 [![Twitter Follow](https://img.shields.io/twitter/follow/MoOx?style=social&label=Follow%20me)](https://twitter.com/MoOx)
 [![Sponsor my work](https://github.com/moox/.github/raw/main/FUNDING-button.svg)](https://github.com/MoOx/react-native-transparent-status-and-navigation-bar?sponsor=1)
 
-Easily handle transparent status and navigation bar for React Native apps
+Easily handle transparent status and navigation bar for React Native apps.
 
-- Fully works starting Android 6.
-- For Android 5 or less, enables translucent bar with fallbacks (you can choose light & dark colors).
-- _Does nothing for iOS as this is built-in in the system._
+- On Android prior to 8.1, the system UI will be set to translucent (semi opaque), and this library will have no effect.
+- On iOS, `<NavigationBar />` component will have no effect.
 
 ## Preview
 
-| Android 10+ (API 29+)                                          | Android 9 to 6 (API 26 to 28)                                  | Android 5 and less                                             |
-| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
-| <img src="screenshots/Nexus-6-API-30-light.png" width="200" /> | <img src="screenshots/Nexus-6-API-23-light.png" width="200" /> | <img src="screenshots/Nexus-6-API-22-light.png" width="200" /> |
-| <img src="screenshots/Nexus-6-API-30-dark.png" width="200" />  | <img src="screenshots/Nexus-6-API-23-dark.png" width="200" />  | <img src="screenshots/Nexus-6-API-22-dark.png" width="200" />  |
+| Android 8.1+ (API 27+)                                         | Android 5 to 8 (API 21 to 26)                                  |
+| -------------------------------------------------------------- | -------------------------------------------------------------- |
+| <img src="screenshots/Nexus-6-API-27-light.png" width="200" /> | <img src="screenshots/Nexus-6-API-21-light.png" width="200" /> |
+| <img src="screenshots/Nexus-6-API-27-dark.png" width="200" />  | <img src="screenshots/Nexus-6-API-21-dark.png" width="200" />  |
 
 ℹ️ _Note that native Dark Mode only comes with Android 10._
 
@@ -86,40 +85,28 @@ import * as React from "react";
 // ...
 
 // ⬇ Requirement
-import * as TransparentStatusAndNavigationBar from "react-native-transparent-status-and-navigation-bar";
-
-// ⬇ Requirement
-TransparentStatusAndNavigationBar.init();
-
-// This is to change React Native `StatusBar` default values for `translucent` (and `backgroundColor` fallback for Android 5 or less).
+import {
+  NavigationBar,
+  StatusBar,
+  SystemBar,
+} from "react-native-transparent-status-and-navigation-bar";
 
 export default function App() {
-    // ...
+  // ...
 
-    // Alternatively, you can put the init here to have this always up to date
-    // which can be interesting when you play with StatusBar app reloads during development
-    // React.useEffect(() => {
-    //   TransparentStatusAndNavigationBar.init();
-    // }, []);
+  const isDarkMode = useColorScheme() === "dark";
+  const barStyle = isDarkMode ? "light-content" : "dark-content";
 
-    // ⬇ OPTIONAL **in case of custom themes ONLY**
+  return (
+    <>
+      <StatusBar barStyle={barStyle} />
+      <NavigationBar barStyle={barStyle} />
 
-    // If your app use a custom theme instead of just relying on native Dark Mode,
-    // you can easily force "light" or "dark" fallbacks for Android 5-
-    const { mode } = useTheme()
-    // ⬆ useTheme() here is a imaginary hook (that you will create yourself)
-    // mode is also something imagined that can tell if the theme is dark or light
-    // depending on the colors of the theme
-    React.useEffect(() => {
-      TransparentStatusAndNavigationBar.setBarsStyle(
-        mode === "dark" ? "dark-content" : "light-content",
-        // ~animated=true // or false // won't be used for Android
-      )
-    }, [mode])
-
-    // ...
-    // Your actual app root
-
+      {/* Or, to update both: */}
+      <SystemBar barStyle={barStyle} />
+    </>
+  );
+}
 ```
 
 ## Limitation
@@ -134,9 +121,6 @@ This module just does what's it's named after. After launch, it does nothing mor
 
 ⚠️ If you use React Native `StatusBar` with `barStyle` as the only prop, the background will be affected as by default React Native module deactivate transluscent/transparent mode.
 Simple workaround is to always send use 2 props to ensure React Native doesn't rollback some of the setup made by this module. You can simply always use `<StatusBar translucent={true} backgroundColor={"transparent"} /* your props like barStyle etc*/ />`.
-You can also create your own `StatusBar` that will just always send this props or use the status bar module provided by this module `TransparentStatusBar` which does exactly this.
-
-`TransparentStatusAndNavigationBar.init()` should modify React Native `StatusBar` default values to prevent this problem. Read carefully setup instructions before opening an issue.
 
 ### During a few _milliseconds_ on launch, status bar and navigation bar won't be transparent.
 
