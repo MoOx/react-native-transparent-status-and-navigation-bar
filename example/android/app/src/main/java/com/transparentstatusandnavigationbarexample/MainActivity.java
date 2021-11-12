@@ -1,6 +1,10 @@
 package com.transparentstatusandnavigationbarexample;
 
+import android.os.Bundle;
+
 import com.facebook.react.ReactActivity;
+
+import io.moox.rntransparentstatusandnavigationbar.RNTransparentStatusAndNavigationBar;
 
 public class MainActivity extends ReactActivity {
 
@@ -11,5 +15,13 @@ public class MainActivity extends ReactActivity {
   @Override
   protected String getMainComponentName() {
     return "TransparentStatusAndNavigationBarExample";
+  }
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    // ⬇ Requirement
+    RNTransparentStatusAndNavigationBar.init(MainActivity.this);
   }
 }
