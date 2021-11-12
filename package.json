@@ -15,14 +15,20 @@
     "navigation",
     "status-bar"
   ],
+  "main": "dist/commonjs/index",
+  "module": "dist/module/index",
+  "react-native": "src/index",
+  "source": "src/index",
   "types": "dist/typescript/index.d.ts",
-  "main": "dist/commonjs/index.js",
-  "module": "dist/module/index.js",
   "files": [
-    "/android",
-    "/dist",
-    "/src",
-    "package.json"
+    "android",
+    "src",
+    "dist",
+    "!**/__fixtures__",
+    "!**/__mocks__",
+    "!**/__tests__",
+    "!android/build",
+    "!dist/typescript/example"
   ],
   "scripts": {
     "format": "prettier '**/*.{js,json,md,ts,tsx}' --write",
@@ -35,27 +41,31 @@
   "prettier": {
     "trailingComma": "all"
   },
-  "@react-native-community/bob": {
+  "react-native-builder-bob": {
     "source": "src",
     "output": "dist",
     "targets": [
       "commonjs",
       "module",
-      "typescript"
+      [
+        "typescript",
+        {
+          "project": "tsconfig.build.json"
+        }
+      ]
     ]
   },
   "peerDependencies": {
-    "react": ">=17.0.1",
-    "react-native": ">=0.64.0"
+    "react": ">=17.0.2",
+    "react-native": ">=0.65.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.0",
-    "@react-native-community/bob": "^0.17.1",
+    "react-native-builder-bob": "^0.18.2",
     "@types/react-native": "^0.66.4",
     "npmpub": "^5.0.0",
     "prettier": "^2.4.1",
-    "react": "^17.0.2",
-    "react-native": "^0.66.3",
+    "react": "17.0.2",
+    "react-native": "0.66.3",
     "typescript": "^4.4.4"
   }
 }

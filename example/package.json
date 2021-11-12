@@ -1,5 +1,5 @@
 {
-  "name": "transparentstatusandnavigationbarexample",
+  "name": "react-native-transparent-status-and-navigation-bar-example",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -15,8 +15,7 @@
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/runtime": "^7.16.3",
-    "@types/react-native": "^0.66.4",
-    "metro-react-native-babel-preset": "^0.66.2",
-    "typescript": "^4.4.4"
+    "babel-plugin-module-resolver": "^4.1.0",
+    "metro-react-native-babel-preset": "^0.66.2"
   }
 }

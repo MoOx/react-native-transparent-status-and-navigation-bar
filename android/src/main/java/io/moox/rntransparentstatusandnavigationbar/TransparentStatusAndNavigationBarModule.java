@@ -1,11 +1,11 @@
 package io.moox.rntransparentstatusandnavigationbar;
 
+import android.app.Activity;
+
 import androidx.annotation.NonNull;
 
-import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
-import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.module.annotations.ReactModule;
 
 @ReactModule(name = TransparentStatusAndNavigationBarModule.NAME)
@@ -21,4 +21,6 @@ public class TransparentStatusAndNavigationBarModule extends ReactContextBaseJav
   public String getName() {
     return NAME;
   }
+
+  static public void init(@NonNull final Activity activity) {}
 }
