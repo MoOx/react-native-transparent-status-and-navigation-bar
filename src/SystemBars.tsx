@@ -3,7 +3,7 @@ import { NavigationBar } from "./NavigationBar";
 import { StatusBar } from "./StatusBar";
 import { SystemBarProps } from "./types";
 
-export class SystemBar extends React.Component<SystemBarProps> {
+export class SystemBars extends React.Component<SystemBarProps> {
   render(): React.ReactNode {
     return (
       <>

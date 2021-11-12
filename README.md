@@ -88,7 +88,7 @@ import * as React from "react";
 import {
   NavigationBar,
   StatusBar,
-  SystemBar,
+  SystemBars,
 } from "react-native-transparent-status-and-navigation-bar";
 
 export default function App() {
@@ -103,7 +103,7 @@ export default function App() {
       <NavigationBar barStyle={barStyle} />
 
       {/* Or, to update both: */}
-      <SystemBar barStyle={barStyle} />
+      <SystemBars barStyle={barStyle} />
     </>
   );
 }
