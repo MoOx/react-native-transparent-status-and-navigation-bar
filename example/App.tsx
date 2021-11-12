@@ -1,6 +1,5 @@
 import * as React from "react";
 import {
-  PlatformColor,
   Pressable,
   SafeAreaView,
   StyleSheet,
@@ -52,7 +51,8 @@ export const App = () => {
       <StatusBar barStyle={statusBarStyle} />
       <NavigationBar barStyle={navigationBarStyle} />
 
-      <Text>{"StatusBar barStyle: " + (statusBarStyle ?? "default")}</Text>
+      <Text>StatusBar barStyle: {statusBarStyle ?? "default"}</Text>
+      <Text>StatusBar height: {StatusBar.currentHeight ?? "unavailable"}</Text>
 
       <View style={styles.spacer} />
 
@@ -77,8 +77,9 @@ export const App = () => {
       <View style={styles.spacer} />
       <View style={styles.spacer} />
 
+      <Text>NavigationBar barStyle: {statusBarStyle ?? "default"}</Text>
       <Text>
-        {"NavigationBar barStyle: " + (navigationBarStyle ?? "default")}
+        NavigationBar height: {NavigationBar.currentHeight ?? "unavailable"}
       </Text>
 
       <View style={styles.spacer} />
